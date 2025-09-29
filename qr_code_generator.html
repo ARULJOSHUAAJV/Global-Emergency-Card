@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Code Generator - Global Emergency Card</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fglobaleme1676back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background min-h-screen">
+    <!-- Header -->
+    <header class="bg-primary text-white shadow-floating sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo and Title -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold">QR Code Generator</h1>
+                        <p class="text-red-100 text-sm">Emergency Information Sharing</p>
+                    </div>
+                </div>
+
+                <!-- Navigation Menu -->
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="dashboard.html" class="text-red-100 hover:text-white transition-colors duration-200">Dashboard</a>
+                    <a href="medical_information.html" class="text-red-100 hover:text-white transition-colors duration-200">Medical Info</a>
+                    <a href="emergency_contacts.html" class="text-red-100 hover:text-white transition-colors duration-200">Contacts</a>
+                    <a href="country_emergency_numbers.html" class="text-red-100 hover:text-white transition-colors duration-200">Emergency Numbers</a>
+                    <a href="emergency_quick_access.html" class="text-red-100 hover:text-white transition-colors duration-200">Quick Access</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-white p-2" onclick="toggleMobileMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="dashboard.html" class="text-red-100 hover:text-white py-2 transition-colors duration-200">Dashboard</a>
+                    <a href="medical_information.html" class="text-red-100 hover:text-white py-2 transition-colors duration-200">Medical Info</a>
+                    <a href="emergency_contacts.html" class="text-red-100 hover:text-white py-2 transition-colors duration-200">Contacts</a>
+                    <a href="country_emergency_numbers.html" class="text-red-100 hover:text-white py-2 transition-colors duration-200">Emergency Numbers</a>
+                    <a href="emergency_quick_access.html" class="text-red-100 hover:text-white py-2 transition-colors duration-200">Quick Access</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <!-- Page Header -->
+        <section class="mb-8">
+            <div class="bg-surface rounded-lg shadow-card p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h2 class="text-3xl font-bold text-text-primary mb-2">QR Code Generator</h2>
+                        <p class="text-text-secondary">Create shareable QR codes for emergency responders and medical personnel</p>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center">
+                            <svg class="w-8 h-8 text-secondary" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M3 11h8V3H3v8zm2-6h4v4H5V5zM13 3v8h8V3h-8zm6 6h-4V5h4v4zM3 21h8v-8H3v8zm2-6h4v4H5v-4z"/>
+                                <path d="M18 13h-2v2h2v-2zM20 15h-2v2h2v-2zM16 15h-2v2h2v-2zM18 17h-2v2h2v-2z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- QR Code Display Section -->
+            <div class="lg:col-span-2">
+                <!-- QR Code Container -->
+                <section class="mb-8">
+                    <div class="medical-card text-center">
+                        <h3 class="text-xl font-bold text-text-primary mb-6">Emergency Medical QR Code</h3>
+                        
+                        <!-- QR Code Display -->
+                        <div class="bg-white p-8 rounded-lg border-2 border-border-light mb-6 inline-block">
+                            <div id="qrCodeContainer" class="w-64 h-64 mx-auto bg-gray-50 rounded-lg flex items-center justify-center">
+                                <img id="qrCodeImage" src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=EMERGENCY%20MEDICAL%20INFO%0AName:%20John%20Doe%0ABlood%20Type:%20O+%0AAllergies:%20Penicillin,%20Shellfish%0AConditions:%20Type%202%20Diabetes%0AMedications:%20Metformin%20500mg%0AEmergency%20Contact:%20John%20Smith%20-%20+1%20(555)%200123%0ADoctor:%20Dr.%20Sarah%20Johnson%20-%20+1%20(555)%200456%0AGenerated:%20Dec%202025" alt="Emergency Medical QR Code" class="w-full h-full object-contain" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                            </div>
+                        </div>
+
+                        <!-- QR Code Actions -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                            <button onclick="downloadQRCode()" class="emergency-button">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                                </svg>
+                                Download
+                            </button>
+                            <button onclick="printQRCode()" class="bg-secondary text-white font-semibold py-4 px-6 rounded-lg hover:bg-secondary-700 transition-colors duration-200">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/>
+                                </svg>
+                                Print
+                            </button>
+                            <button onclick="regenerateQRCode()" class="bg-accent text-white font-semibold py-4 px-6 rounded-lg hover:bg-accent-600 transition-colors duration-200">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                                </svg>
+                                Regenerate
+                            </button>
+                        </div>
+
+                        <!-- QR Code Size Options -->
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-text-primary mb-3">QR Code Size</h4>
+                            <div class="flex flex-wrap gap-2 justify-center">
+                                <button onclick="changeQRSize(128)" class="px-4 py-2 bg-white border border-border rounded-lg hover:bg-gray-50 transition-colors duration-200">
+                                    Small (128px)
+                                </button>
+                                <button onclick="changeQRSize(256)" class="px-4 py-2 bg-secondary text-white border border-secondary rounded-lg">
+                                    Medium (256px)
+                                </button>
+                                <button onclick="changeQRSize(512)" class="px-4 py-2 bg-white border border-border rounded-lg hover:bg-gray-50 transition-colors duration-200">
+                                    Large (512px)
+                                </button>
+                                <button onclick="changeQRSize(1024)" class="px-4 py-2 bg-white border border-border rounded-lg hover:bg-gray-50 transition-colors duration-200">
+                                    Extra Large (1024px)
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- QR Code Testing -->
+                <section class="mb-8">
+                    <div class="medical-card">
+                        <h3 class="text-xl font-bold text-text-primary mb-4">Test QR Code</h3>
+                        <p class="text-text-secondary mb-4">Use your device camera to test if the QR code is readable</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <button onclick="testQRCode()" class="bg-success text-white font-semibold py-3 px-6 rounded-lg hover:bg-success-700 transition-colors duration-200">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                                Test with Camera
+                            </button>
+                            <button onclick="shareQRCode()" class="bg-secondary text-white font-semibold py-3 px-6 rounded-lg hover:bg-secondary-700 transition-colors duration-200">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"/>
+                                </svg>
+                                Share QR Code
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Customization Panel -->
+            <div class="lg:col-span-1">
+                <!-- Information Selection -->
+                <section class="mb-8">
+                    <div class="medical-card">
+                        <h3 class="text-xl font-bold text-text-primary mb-4">Information to Include</h3>
+                        <p class="text-text-secondary mb-4">Select which information to include in your QR code</p>
+                        
+                        <div class="space-y-4">
+                            <!-- Basic Information -->
+                            <div class="border border-border-light rounded-lg p-4">
+                                <h4 class="font-semibold text-text-primary mb-3">Basic Information</h4>
+                                <div class="space-y-2">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" checked class="form-checkbox text-primary mr-3" onchange="updateQRCode()" />
+                                        <span class="text-text-primary">Full Name</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" checked class="form-checkbox text-primary mr-3" onchange="updateQRCode()" />
+                                        <span class="text-text-primary">Blood Type</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="form-checkbox text-primary mr-3" onchange="updateQRCode()" />
+                                        <span class="text-text-primary">Date of Birth</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Medical Information -->
+                            <div class="border border-border-light rounded-lg p-4">
+                                <h4 class="font-semibold text-text-primary mb-3">Medical Information</h4>
+                                <div class="space-y-2">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" checked class="form-checkbox text-primary mr-3" onchange="updateQRCode()" />
+                                        <span class="text-text-primary">Allergies</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" checked class="form-checkbox text-primary mr-3" onchange="updateQRCode()" />
+                                        <span class="text-text-primary">Medical Conditions</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" checked class="form-checkbox text-primary mr-3" onchange="updateQRCode()" />
+                                        <span class="text-text-primary">Current Medications</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="form-checkbox text-primary mr-3" onchange="updateQRCode()" />
+                                        <span class="text-text-primary">Medical History</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Emergency Contacts -->
+                            <div class="border border-border-light rounded-lg p-4">
+                                <h4 class="font-semibold text-text-primary mb-3">Emergency Contacts</h4>
+                                <div class="space-y-2">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" checked class="form-checkbox text-primary mr-3" onchange="updateQRCode()" />
+                                        <span class="text-text-primary">Primary Contact</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="form-checkbox text-primary mr-3" onchange="updateQRCode()" />
+                                        <span class="text-text-primary">Secondary Contact</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" checked class="form-checkbox text-primary mr-3" onchange="updateQRCode()" />
+                                        <span class="text-text-primary">Primary Doctor</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Information Preview -->
+                <section class="mb-8">
+                    <div class="medical-card">
+                        <h3 class="text-xl font-bold text-text-primary mb-4">QR Code Preview</h3>
+                        <p class="text-text-secondary mb-4">This is what emergency responders will see when they scan your QR code</p>
+                        
+                        <div class="bg-gray-50 rounded-lg p-4 font-mono text-sm">
+                            <div id="qrPreviewContent">
+                                <div class="text-primary font-bold mb-2">EMERGENCY MEDICAL INFO</div>
+                                <div class="space-y-1 text-text-primary">
+                                    <div><strong>Name:</strong> John Doe</div>
+                                    <div><strong>Blood Type:</strong> O+</div>
+                                    <div><strong>Allergies:</strong> Penicillin, Shellfish</div>
+                                    <div><strong>Conditions:</strong> Type 2 Diabetes</div>
+                                    <div><strong>Medications:</strong> Metformin 500mg</div>
+                                    <div><strong>Emergency Contact:</strong> John Smith - +1 (555) 0123</div>
+                                    <div><strong>Doctor:</strong> Dr. Sarah Johnson - +1 (555) 0456</div>
+                                    <div class="text-text-secondary text-xs mt-2">Generated: December 2025</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quick Actions -->
+                <section>
+                    <div class="medical-card">
+                        <h3 class="text-xl font-bold text-text-primary mb-4">Quick Actions</h3>
+                        <div class="space-y-3">
+                            <a href="medical_information.html" class="block w-full bg-secondary text-white text-center font-semibold py-3 px-4 rounded-lg hover:bg-secondary-700 transition-colors duration-200">
+                                <svg class="w-5 h-5 mr-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                                </svg>
+                                Update Medical Info
+                            </a>
+                            <a href="emergency_contacts.html" class="block w-full bg-success text-white text-center font-semibold py-3 px-4 rounded-lg hover:bg-success-700 transition-colors duration-200">
+                                <svg class="w-5 h-5 mr-2 inline" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                </svg>
+                                Manage Contacts
+                            </a>
+                            <button onclick="saveAsWallpaper()" class="w-full bg-accent text-white font-semibold py-3 px-4 rounded-lg hover:bg-accent-600 transition-colors duration-200">
+                                <svg class="w-5 h-5 mr-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                </svg>
+                                Save as Wallpaper
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating Emergency Button -->
+    <div class="floating-action animate-pulse-emergency" onclick="window.location.href='emergency_quick_access.html'">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+        </svg>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        let currentQRSize = 256;
+        
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // QR Code Functions
+        function downloadQRCode() {
+            const qrImage = document.getElementById('qrCodeImage');
+            const link = document.createElement('a');
+            link.download = 'emergency-medical-qr-code.png';
+            link.href = qrImage.src;
+            link.click();
+        }
+
+        function printQRCode() {
+            const printWindow = window.open('', '_blank');
+            const qrImage = document.getElementById('qrCodeImage');
+            const previewContent = document.getElementById('qrPreviewContent').innerHTML;
+            
+            printWindow.document.write(`
+                <html>
+                    <head>
+                        <title>Emergency Medical QR Code</title>
+                        <style>
+                            body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+                            .qr-container { margin: 20px 0; }
+                            .info-preview { text-align: left; max-width: 400px; margin: 20px auto; font-size: 12px; }
+                            img { max-width: 300px; height: auto; }
+                        </style>
+                    </head>
+                    <body>
+                        <h1>Emergency Medical QR Code</h1>
+                        <div class="qr-container">
+                            <img src="${qrImage.src}" alt="Emergency Medical QR Code">
+                        </div>
+                        <div class="info-preview">
+                            ${previewContent}
+                        </div>
+                        <p style="font-size: 10px; color: #666; margin-top: 30px;">
+                            Generated on ${new Date().toLocaleDateString()} | Global Emergency Card
+                        </p>
+                    <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+                </html>
+            `);
+            printWindow.document.close();
+            printWindow.print();
+        }
+
+        function regenerateQRCode() {
+            updateQRCode();
+            // Show success message
+            const button = event.target;
+            const originalText = button.innerHTML;
+            button.innerHTML = '<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Regenerated!';
+            setTimeout(() => {
+                button.innerHTML = originalText;
+            }, 2000);
+        }
+
+        function changeQRSize(size) {
+            currentQRSize = size;
+            updateQRCode();
+            
+            // Update button states
+            document.querySelectorAll('[onclick^="changeQRSize"]').forEach(btn => {
+                btn.className = 'px-4 py-2 bg-white border border-border rounded-lg hover:bg-gray-50 transition-colors duration-200';
+            });
+            event.target.className = 'px-4 py-2 bg-secondary text-white border border-secondary rounded-lg';
+            
+            // Update container size
+            const container = document.getElementById('qrCodeContainer');
+            const newSize = Math.min(size, 320); // Max display size
+            container.style.width = newSize + 'px';
+            container.style.height = newSize + 'px';
+        }
+
+        function updateQRCode() {
+            // Get selected information
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            let qrData = 'EMERGENCY MEDICAL INFO\n';
+            
+            // Build QR data based on selections
+            if (checkboxes[0].checked) qrData += 'Name: John Doe\n';
+            if (checkboxes[1].checked) qrData += 'Blood Type: O+\n';
+            if (checkboxes[2].checked) qrData += 'DOB: 1985-03-15\n';
+            if (checkboxes[3].checked) qrData += 'Allergies: Penicillin, Shellfish\n';
+            if (checkboxes[4].checked) qrData += 'Conditions: Type 2 Diabetes\n';
+            if (checkboxes[5].checked) qrData += 'Medications: Metformin 500mg\n';
+            if (checkboxes[6].checked) qrData += 'Medical History: Hypertension (2020)\n';
+            if (checkboxes[7].checked) qrData += 'Emergency Contact: John Smith - +1 (555) 0123\n';
+            if (checkboxes[8].checked) qrData += 'Secondary Contact: Maria Garcia - +1 (555) 0789\n';
+            if (checkboxes[9].checked) qrData += 'Doctor: Dr. Sarah Johnson - +1 (555) 0456\n';
+            
+            qrData += `Generated: ${new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}`;
+            
+            // Update QR code image
+            const encodedData = encodeURIComponent(qrData);
+            const qrImage = document.getElementById('qrCodeImage');
+            qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=${currentQRSize}x${currentQRSize}&data=${encodedData}`;
+            
+            // Update preview
+            updatePreview();
+        }
+
+        function updatePreview() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            let previewHTML = '<div class="text-primary font-bold mb-2">EMERGENCY MEDICAL INFO</div><div class="space-y-1 text-text-primary">';
+            
+            if (checkboxes[0].checked) previewHTML += '<div><strong>Name:</strong> John Doe</div>';
+            if (checkboxes[1].checked) previewHTML += '<div><strong>Blood Type:</strong> O+</div>';
+            if (checkboxes[2].checked) previewHTML += '<div><strong>DOB:</strong> March 15, 1985</div>';
+            if (checkboxes[3].checked) previewHTML += '<div><strong>Allergies:</strong> Penicillin, Shellfish</div>';
+            if (checkboxes[4].checked) previewHTML += '<div><strong>Conditions:</strong> Type 2 Diabetes</div>';
+            if (checkboxes[5].checked) previewHTML += '<div><strong>Medications:</strong> Metformin 500mg</div>';
+            if (checkboxes[6].checked) previewHTML += '<div><strong>Medical History:</strong> Hypertension (2020)</div>';
+            if (checkboxes[7].checked) previewHTML += '<div><strong>Emergency Contact:</strong> John Smith - +1 (555) 0123</div>';
+            if (checkboxes[8].checked) previewHTML += '<div><strong>Secondary Contact:</strong> Maria Garcia - +1 (555) 0789</div>';
+            if (checkboxes[9].checked) previewHTML += '<div><strong>Doctor:</strong> Dr. Sarah Johnson - +1 (555) 0456</div>';
+            
+            previewHTML += '<div class="text-text-secondary text-xs mt-2">Generated: December 2025</div></div>';
+            
+            document.getElementById('qrPreviewContent').innerHTML = previewHTML;
+        }
+
+        function testQRCode() {
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                alert('Camera access would be requested to test QR code scanning. This feature requires camera permissions.');
+            } else {
+                alert('Camera access is not available on this device. You can test the QR code using any QR scanner app.');
+            }
+        }
+
+        function shareQRCode() {
+            const qrImage = document.getElementById('qrCodeImage');
+            
+            if (navigator.share) {
+                // Use Web Share API if available
+                fetch(qrImage.src)
+                    .then(response => response.blob())
+                    .then(blob => {
+                        const file = new File([blob], 'emergency-qr-code.png', { type: 'image/png' });
+                        navigator.share({
+                            title: 'Emergency Medical QR Code',
+                            text: 'My emergency medical information QR code',
+                            files: [file]
+                        });
+                    })
+                    .catch(() => {
+                        // Fallback to copying URL
+                        navigator.clipboard.writeText(qrImage.src).then(() => {
+                            alert('QR code URL copied to clipboard!');
+                        });
+                    });
+            } else {
+                // Fallback for browsers without Web Share API
+                navigator.clipboard.writeText(qrImage.src).then(() => {
+                    alert('QR code URL copied to clipboard!');
+                }).catch(() => {
+                    alert('Unable to share. You can right-click the QR code to save or copy it.');
+                });
+            }
+        }
+
+        function saveAsWallpaper() {
+            const qrImage = document.getElementById('qrCodeImage');
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Create wallpaper-sized canvas (common phone resolution)
+            canvas.width = 1080;
+            canvas.height = 1920;
+            
+            // Fill with background
+            ctx.fillStyle = '#FAFAFA';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Add title
+            ctx.fillStyle = '#DC2626';
+            ctx.font = 'bold 48px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('EMERGENCY MEDICAL INFO', canvas.width / 2, 200);
+            
+            // Add QR code (centered)
+            const img = new Image();
+            img.crossOrigin = 'anonymous';
+            img.onload = function() {
+                const qrSize = 600;
+                const x = (canvas.width - qrSize) / 2;
+                const y = (canvas.height - qrSize) / 2;
+                ctx.drawImage(img, x, y, qrSize, qrSize);
+                
+                // Add instructions
+                ctx.fillStyle = '#6B7280';
+                ctx.font = '32px Arial';
+                ctx.fillText('Scan in case of emergency', canvas.width / 2, canvas.height - 200);
+                
+                // Download wallpaper
+                const link = document.createElement('a');
+                link.download = 'emergency-qr-wallpaper.png';
+                link.href = canvas.toDataURL();
+                link.click();
+            };
+            img.src = qrImage.src;
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            updateQRCode();
+            console.log('QR Code Generator page loaded');
+        });
+    
+
+    <!-- Print Styles -->
+    <style media="print">
+        @page {
+            margin: 0.5in;
+        }
+        
+        body * {
+            visibility: hidden;
+        }
+        
+        .print-content, .print-content * {
+            visibility: visible;
+        }
+        
+        .no-print {
+            display: none !important;
+        }
+        
+        .floating-action {
+            display: none !important;
+        }
+    </style>
+
