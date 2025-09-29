@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Country Emergency Numbers - Global Emergency Card</title>
+    <title>Dashboard - Global Emergency Card</title>
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fglobaleme1676back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
 </head>
 <body class="bg-background min-h-screen">
-    <!-- Emergency Header -->
+    <!-- Header -->
     <header class="bg-primary text-white shadow-floating sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
@@ -22,17 +22,17 @@
                         </svg>
                     </div>
                     <div>
-                        <h1 class="text-xl font-bold">Emergency Numbers</h1>
-                        <p class="text-red-100 text-sm">Global Directory</p>
+                        <h1 class="text-xl font-bold">Global Emergency Card</h1>
+                        <p class="text-red-100 text-sm">Emergency Preparedness Dashboard</p>
                     </div>
                 </div>
 
                 <!-- Navigation Menu -->
                 <nav class="hidden md:flex items-center space-x-6">
-                    <a href="dashboard.html" class="text-red-100 hover:text-white transition-colors duration-200">Dashboard</a>
+                    <a href="dashboard.html" class="text-white font-medium">Dashboard</a>
                     <a href="medical_information.html" class="text-red-100 hover:text-white transition-colors duration-200">Medical Info</a>
                     <a href="emergency_contacts.html" class="text-red-100 hover:text-white transition-colors duration-200">Contacts</a>
-                    <a href="country_emergency_numbers.html" class="text-white font-semibold">Emergency Numbers</a>
+                    <a href="country_emergency_numbers.html" class="text-red-100 hover:text-white transition-colors duration-200">Emergency Numbers</a>
                     <a href="qr_code_generator.html" class="text-red-100 hover:text-white transition-colors duration-200">QR Code</a>
                 </nav>
 
@@ -47,10 +47,10 @@
             <!-- Mobile Menu -->
             <div id="mobileMenu" class="hidden md:hidden pb-4">
                 <div class="flex flex-col space-y-2">
-                    <a href="dashboard.html" class="text-red-100 hover:text-white py-2 transition-colors duration-200">Dashboard</a>
+                    <a href="dashboard.html" class="text-white font-medium py-2">Dashboard</a>
                     <a href="medical_information.html" class="text-red-100 hover:text-white py-2 transition-colors duration-200">Medical Info</a>
                     <a href="emergency_contacts.html" class="text-red-100 hover:text-white py-2 transition-colors duration-200">Contacts</a>
-                    <a href="country_emergency_numbers.html" class="text-white font-semibold py-2">Emergency Numbers</a>
+                    <a href="country_emergency_numbers.html" class="text-red-100 hover:text-white py-2 transition-colors duration-200">Emergency Numbers</a>
                     <a href="qr_code_generator.html" class="text-red-100 hover:text-white py-2 transition-colors duration-200">QR Code</a>
                 </div>
             </div>
@@ -59,690 +59,534 @@
 
     <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <!-- Page Header -->
+        <!-- Welcome Section -->
         <section class="mb-8">
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                <div>
-                    <h2 class="text-3xl font-bold text-text-primary">Global Emergency Numbers</h2>
-                    <p class="text-text-secondary mt-2">Access emergency contact information for countries worldwide</p>
+            <div class="bg-gradient-to-r from-primary-50 to-secondary-50 rounded-lg p-6 animate-fade-in">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h2 class="text-2xl font-bold text-text-primary mb-2">Welcome to Your Emergency Dashboard</h2>
+                        <p class="text-text-secondary">Stay prepared with instant access to critical information</p>
+                        <p class="text-text-muted text-sm mt-1">Last updated: September 29, 2025</p>
+                    </div>
+                    <div class="hidden md:block">
+                        <img src="https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Emergency preparedness illustration" class="w-24 h-24 object-cover rounded-lg" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                    </div>
                 </div>
-                <div class="flex items-center space-x-3">
-                    <button onclick="detectLocation()" class="inline-flex items-center px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary-700 transition-colors duration-200">
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                        </svg>
-                        Detect Location
-                    </button>
-                    <a href="emergency_quick_access.html" class="inline-flex items-center px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-700 transition-colors duration-200">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"/>
-                        </svg>
-                        Emergency Access
+            </div>
+        </section>
+
+        <!-- Emergency Quick Access -->
+        <section class="mb-8">
+            <div class="bg-primary-50 border-l-4 border-primary rounded-lg p-6">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white animate-pulse-emergency" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-primary">Emergency Mode</h3>
+                            <p class="text-text-secondary">Quick access to critical information</p>
+                        </div>
+                    </div>
+                    <a href="emergency_quick_access.html" class="emergency-button">
+                        Activate Emergency Mode
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- Country Selection and Search -->
+        <!-- Status Cards -->
         <section class="mb-8">
-            <div class="medical-card">
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <!-- Country Search -->
-                    <div class="lg:col-span-2">
-                        <label for="countrySearch" class="block text-sm font-semibold text-text-primary mb-2">Search Countries</label>
-                        <div class="relative">
-                            <input type="text" id="countrySearch" placeholder="Search by country name or emergency number..." class="form-input pl-10" onkeyup="searchCountries(this.value)" />
-                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <svg class="w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            <h2 class="text-2xl font-bold text-text-primary mb-6">Emergency Preparedness Status</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Medical Information Status -->
+                <div class="medical-card border-l-4 border-l-success">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-success-100 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-success" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
                                 </svg>
                             </div>
+                            <div>
+                                <h3 class="font-bold text-text-primary">Medical Information</h3>
+                                <p class="text-text-secondary text-sm">Complete</p>
+                            </div>
+                        </div>
+                        <span class="status-indicator success">85%</span>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-success h-2 rounded-full" style="width: 85%"></div>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-text-secondary">Blood type, allergies set</span>
+                            <a href="medical_information.html" class="text-success hover:text-success-700 font-medium">Update</a>
                         </div>
                     </div>
-
-                    <!-- Service Filter -->
-                    <div>
-                        <label for="serviceFilter" class="block text-sm font-semibold text-text-primary mb-2">Filter by Service</label>
-                        <select id="serviceFilter" class="form-input" onchange="filterServices(this.value)">
-                            <option value="all">All Services</option>
-                            <option value="police">Police</option>
-                            <option value="fire">Fire Department</option>
-                            <option value="medical">Medical Emergency</option>
-                            <option value="general">General Emergency</option>
-                        </select>
-                    </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Favorites and Recent Countries -->
-        <section class="mb-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <!-- Favorite Countries -->
-                <div class="medical-card border-l-4 border-l-accent">
+                <!-- Emergency Contacts Status -->
+                <div class="medical-card border-l-4 border-l-warning">
                     <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-lg font-bold text-text-primary">Favorite Countries</h3>
-                        <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                    </div>
-                    <div class="space-y-3" id="favoriteCountries">
-                        <div class="flex items-center justify-between p-3 bg-accent-50 rounded-lg cursor-pointer hover:bg-accent-100 transition-colors duration-200" onclick="selectCountry('US')">
-                            <div class="flex items-center space-x-3">
-                                <img src="https://images.unsplash.com/photo-1485738422979-f5c462d49f74?q=80&w=2899&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="United States Flag" class="w-8 h-6 object-cover rounded border" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
-                                <span class="font-medium text-text-primary">United States</span>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-warning-100 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-warning" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                </svg>
                             </div>
-                            <span class="text-accent font-mono text-sm">911</span>
+                            <div>
+                                <h3 class="font-bold text-text-primary">Emergency Contacts</h3>
+                                <p class="text-text-secondary text-sm">Needs Review</p>
+                            </div>
                         </div>
-                        <div class="flex items-center justify-between p-3 bg-accent-50 rounded-lg cursor-pointer hover:bg-accent-100 transition-colors duration-200" onclick="selectCountry('UK')">
-                            <div class="flex items-center space-x-3">
-                                <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="United Kingdom Flag" class="w-8 h-6 object-cover rounded border" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
-                                <span class="font-medium text-text-primary">United Kingdom</span>
-                            </div>
-                            <span class="text-accent font-mono text-sm">999</span>
+                        <span class="status-indicator warning">60%</span>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-warning h-2 rounded-full" style="width: 60%"></div>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-text-secondary">3 contacts added</span>
+                            <a href="emergency_contacts.html" class="text-warning hover:text-warning-700 font-medium">Manage</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Recent Countries -->
+                <!-- Country Selection Status -->
                 <div class="medical-card border-l-4 border-l-secondary">
                     <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-lg font-bold text-text-primary">Recent Countries</h3>
-                        <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                    </div>
-                    <div class="space-y-3" id="recentCountries">
-                        <div class="flex items-center justify-between p-3 bg-secondary-50 rounded-lg cursor-pointer hover:bg-secondary-100 transition-colors duration-200" onclick="selectCountry('CA')">
-                            <div class="flex items-center space-x-3">
-                                <img src="https://images.unsplash.com/photo-1517935706615-2717063c2225?q=80&w=2946&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Canada Flag" class="w-8 h-6 object-cover rounded border" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
-                                <span class="font-medium text-text-primary">Canada</span>
-                            </div>
-                            <span class="text-secondary font-mono text-sm">911</span>
-                        </div>
-                        <div class="flex items-center justify-between p-3 bg-secondary-50 rounded-lg cursor-pointer hover:bg-secondary-100 transition-colors duration-200" onclick="selectCountry('FR')">
-                            <div class="flex items-center space-x-3">
-                                <img src="https://images.unsplash.com/photo-1502602898536-47ad22581b52?q=80&w=2946&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="France Flag" class="w-8 h-6 object-cover rounded border" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
-                                <span class="font-medium text-text-primary">France</span>
-                            </div>
-                            <span class="text-secondary font-mono text-sm">112</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Selected Country Emergency Numbers -->
-        <section class="mb-8" id="selectedCountrySection">
-            <div class="medical-card bg-primary-50 border-primary">
-                <div class="flex items-center justify-between mb-6">
-                    <div class="flex items-center space-x-4">
-                        <img src="https://images.unsplash.com/photo-1485738422979-f5c462d49f74?q=80&w=2899&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="United States Flag" class="w-12 h-8 object-cover rounded border shadow-minimal" id="selectedCountryFlag" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
-                        <div>
-                            <h3 class="text-2xl font-bold text-primary" id="selectedCountryName">United States</h3>
-                            <p class="text-text-secondary" id="selectedCountryInfo">Emergency services available 24/7 in English</p>
-                        </div>
-                    </div>
-                    <button onclick="toggleFavorite('US')" class="p-2 rounded-lg hover:bg-primary-100 transition-colors duration-200" id="favoriteButton">
-                        <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                    </button>
-                </div>
-
-                <!-- Emergency Services Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="emergencyServices">
-                    <!-- General Emergency -->
-                    <div class="bg-white rounded-lg p-6 border border-primary-200 shadow-card">
-                        <div class="text-center">
-                            <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"/>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-secondary" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.41 4.09L16 11.5l-5.41 5.41L9.18 15.5 12.41 12.27 9.18 9.05l1.41-1.96z"/>
                                 </svg>
                             </div>
-                            <h4 class="text-lg font-bold text-primary mb-2">General Emergency</h4>
-                            <p class="text-text-secondary text-sm mb-4">All emergency services</p>
-                            <div class="font-mono text-3xl font-bold text-primary mb-4">911</div>
-                            <button class="emergency-button w-full" onclick="callEmergency('911')">
-                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                                </svg>
-                                Call Now
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Police -->
-                    <div class="bg-white rounded-lg p-6 border border-secondary-200 shadow-card">
-                        <div class="text-center">
-                            <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
-                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
-                                </svg>
+                            <div>
+                                <h3 class="font-bold text-text-primary">Country Numbers</h3>
+                                <p class="text-text-secondary text-sm">United States</p>
                             </div>
-                            <h4 class="text-lg font-bold text-secondary mb-2">Police</h4>
-                            <p class="text-text-secondary text-sm mb-4">Law enforcement</p>
-                            <div class="font-mono text-3xl font-bold text-secondary mb-4">911</div>
-                            <button class="bg-secondary text-white font-semibold py-3 px-6 rounded-lg hover:bg-secondary-700 transition-colors duration-200 w-full" onclick="callEmergency('911')">
-                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                                </svg>
-                                Call Police
-                            </button>
+                        </div>
+                        <span class="status-indicator success">100%</span>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-secondary h-2 rounded-full" style="width: 100%"></div>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-text-secondary">Current location set</span>
+                            <a href="country_emergency_numbers.html" class="text-secondary hover:text-secondary-700 font-medium">Change</a>
                         </div>
                     </div>
-
-                    <!-- Fire Department -->
-                    <div class="bg-white rounded-lg p-6 border border-warning-200 shadow-card">
-                        <div class="text-center">
-                            <div class="w-16 h-16 bg-warning rounded-full flex items-center justify-center mx-auto mb-4">
-                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M19.48 12.35c-1.57-4.08-7.16-4.3-5.81-10.23.1-.44-.37-.78-.75-.55C9.29 3.71 6.68 8.93 6.68 13.55c0 4.36 3.64 7.9 8.11 7.9 4.59 0 8.32-3.72 8.32-8.32 0-.68-.06-1.34-.2-1.98-.1-.5-.73-.69-1.05-.35-.32.34-.66.69-1.05 1.05-.39.36-.8.72-1.33.5z"/>
-                                </svg>
-                            </div>
-                            <h4 class="text-lg font-bold text-warning mb-2">Fire Department</h4>
-                            <p class="text-text-secondary text-sm mb-4">Fire & rescue services</p>
-                            <div class="font-mono text-3xl font-bold text-warning mb-4">911</div>
-                            <button class="bg-warning text-white font-semibold py-3 px-6 rounded-lg hover:bg-warning-700 transition-colors duration-200 w-full" onclick="callEmergency('911')">
-                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                                </svg>
-                                Call Fire Dept
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Medical Emergency -->
-                    <div class="bg-white rounded-lg p-6 border border-success-200 shadow-card">
-                        <div class="text-center">
-                            <div class="w-16 h-16 bg-success rounded-full flex items-center justify-center mx-auto mb-4">
-                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M19 8h-2v3h-3v2h3v3h2v-3h3v-2h-3V8zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/>
-                                </svg>
-                            </div>
-                            <h4 class="text-lg font-bold text-success mb-2">Medical Emergency</h4>
-                            <p class="text-text-secondary text-sm mb-4">Ambulance & medical</p>
-                            <div class="font-mono text-3xl font-bold text-success mb-4">911</div>
-                            <button class="bg-success text-white font-semibold py-3 px-6 rounded-lg hover:bg-success-700 transition-colors duration-200 w-full" onclick="callEmergency('911')">
-                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                                </svg>
-                                Call Ambulance
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Additional Information -->
-                <div class="mt-6 p-4 bg-white rounded-lg border border-primary-200">
-                    <h4 class="font-semibold text-text-primary mb-2">Important Information</h4>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-text-secondary">
-                        <div>
-                            <strong>Languages:</strong> English (primary), Spanish available
-                        </div>
-                        <div>
-                            <strong>Coverage:</strong> Nationwide 24/7 service
-                        </div>
-                        <div>
-                            <strong>Text Services:</strong> Text to 911 available in most areas
-                        </div>
-                        <div>
-                            <strong>Last Updated:</strong> December 2025
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Country Directory -->
-        <section class="mb-8">
-            <div class="flex items-center justify-between mb-6">
-                <h3 class="text-2xl font-bold text-text-primary">Country Directory</h3>
-                <div class="flex items-center space-x-2">
-                    <span class="text-text-secondary text-sm">195 countries available</span>
-                    <div class="w-2 h-2 bg-success rounded-full"></div>
-                </div>
-            </div>
-
-            <div class="medical-card">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="countryDirectory">
-                    <!-- Country entries will be populated by JavaScript -->
-                    <div class="flex items-center justify-between p-4 border border-border rounded-lg hover:bg-gray-50 cursor-pointer transition-colors duration-200" onclick="selectCountry('AU')">
-                        <div class="flex items-center space-x-3">
-                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Australia Flag" class="w-8 h-6 object-cover rounded border" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
-                            <span class="font-medium text-text-primary">Australia</span>
-                        </div>
-                        <span class="font-mono text-text-secondary">000</span>
-                    </div>
-
-                    <div class="flex items-center justify-between p-4 border border-border rounded-lg hover:bg-gray-50 cursor-pointer transition-colors duration-200" onclick="selectCountry('DE')">
-                        <div class="flex items-center space-x-3">
-                            <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Germany Flag" class="w-8 h-6 object-cover rounded border" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
-                            <span class="font-medium text-text-primary">Germany</span>
-                        </div>
-                        <span class="font-mono text-text-secondary">112</span>
-                    </div>
-
-                    <div class="flex items-center justify-between p-4 border border-border rounded-lg hover:bg-gray-50 cursor-pointer transition-colors duration-200" onclick="selectCountry('JP')">
-                        <div class="flex items-center space-x-3">
-                            <img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Japan Flag" class="w-8 h-6 object-cover rounded border" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
-                            <span class="font-medium text-text-primary">Japan</span>
-                        </div>
-                        <span class="font-mono text-text-secondary">119</span>
-                    </div>
-
-                    <div class="flex items-center justify-between p-4 border border-border rounded-lg hover:bg-gray-50 cursor-pointer transition-colors duration-200" onclick="selectCountry('BR')">
-                        <div class="flex items-center space-x-3">
-                            <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Brazil Flag" class="w-8 h-6 object-cover rounded border" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
-                            <span class="font-medium text-text-primary">Brazil</span>
-                        </div>
-                        <span class="font-mono text-text-secondary">190</span>
-                    </div>
-
-                    <div class="flex items-center justify-between p-4 border border-border rounded-lg hover:bg-gray-50 cursor-pointer transition-colors duration-200" onclick="selectCountry('IN')">
-                        <div class="flex items-center space-x-3">
-                            <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="India Flag" class="w-8 h-6 object-cover rounded border" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
-                            <span class="font-medium text-text-primary">India</span>
-                        </div>
-                        <span class="font-mono text-text-secondary">112</span>
-                    </div>
-
-                    <div class="flex items-center justify-between p-4 border border-border rounded-lg hover:bg-gray-50 cursor-pointer transition-colors duration-200" onclick="selectCountry('MX')">
-                        <div class="flex items-center space-x-3">
-                            <img src="https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Mexico Flag" class="w-8 h-6 object-cover rounded border" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
-                            <span class="font-medium text-text-primary">Mexico</span>
-                        </div>
-                        <span class="font-mono text-text-secondary">911</span>
-                    </div>
-                </div>
-
-                <!-- Load More Button -->
-                <div class="text-center mt-6">
-                    <button onclick="loadMoreCountries()" class="inline-flex items-center px-6 py-3 bg-secondary text-white rounded-lg hover:bg-secondary-700 transition-colors duration-200">
-                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-                        </svg>
-                        Load More Countries
-                    </button>
                 </div>
             </div>
         </section>
 
         <!-- Quick Actions -->
-        <section class="bg-surface rounded-lg shadow-card p-6">
-            <h3 class="text-lg font-bold text-text-primary mb-4">Quick Actions</h3>
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold text-text-primary mb-6">Quick Actions</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <a href="emergency_quick_access.html" class="flex flex-col items-center p-4 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors duration-200">
-                    <svg class="w-8 h-8 text-primary mb-2" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"/>
-                    </svg>
-                    <span class="text-sm font-medium text-primary text-center">Emergency Access</span>
+                <a href="medical_information.html" class="medical-card text-center hover:shadow-floating transition-shadow duration-200">
+                    <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-8 h-8 text-secondary" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-text-primary mb-1">Medical Info</h3>
+                    <p class="text-text-secondary text-sm">Update details</p>
                 </a>
-                <a href="emergency_contacts.html" class="flex flex-col items-center p-4 bg-secondary-50 rounded-lg hover:bg-secondary-100 transition-colors duration-200">
-                    <svg class="w-8 h-8 text-secondary mb-2" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                    </svg>
-                    <span class="text-sm font-medium text-secondary text-center">Emergency Contacts</span>
+
+                <a href="emergency_contacts.html" class="medical-card text-center hover:shadow-floating transition-shadow duration-200">
+                    <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-8 h-8 text-success" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-text-primary mb-1">Contacts</h3>
+                    <p class="text-text-secondary text-sm">Manage list</p>
                 </a>
-                <a href="medical_information.html" class="flex flex-col items-center p-4 bg-success-50 rounded-lg hover:bg-success-100 transition-colors duration-200">
-                    <svg class="w-8 h-8 text-success mb-2" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M19 8h-2v3h-3v2h3v3h2v-3h3v-2h-3V8zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/>
-                    </svg>
-                    <span class="text-sm font-medium text-success text-center">Medical Info</span>
+
+                <a href="qr_code_generator.html" class="medical-card text-center hover:shadow-floating transition-shadow duration-200">
+                    <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M3 11h8V3H3v8zm2-6h4v4H5V5zM13 3v8h8V3h-8zm6 6h-4V5h4v4zM3 21h8v-8H3v8zm2-6h4v4H5v-4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-text-primary mb-1">QR Code</h3>
+                    <p class="text-text-secondary text-sm">Generate code</p>
                 </a>
-                <a href="dashboard.html" class="flex flex-col items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                    <svg class="w-8 h-8 text-text-secondary mb-2" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
-                    </svg>
-                    <span class="text-sm font-medium text-text-secondary text-center">Dashboard</span>
-                </a>
+
+                <button onclick="printWalletCard()" class="medical-card text-center hover:shadow-floating transition-shadow duration-200">
+                    <div class="w-16 h-16 bg-warning-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-8 h-8 text-warning" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-text-primary mb-1">Print Card</h3>
+                    <p class="text-text-secondary text-sm">Wallet size</p>
+                </button>
             </div>
         </section>
+
+        <!-- Dashboard Widgets -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <!-- Recent Activity -->
+            <section>
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-bold text-text-primary">Recent Activity</h2>
+                    <span class="text-text-muted text-sm">Last 7 days</span>
+                </div>
+                <div class="medical-card">
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3 p-3 bg-success-50 rounded-lg">
+                            <div class="w-8 h-8 bg-success rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <p class="font-medium text-text-primary">Medical information updated</p>
+                                <p class="text-text-secondary text-sm">September 27, 2025</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-3 p-3 bg-secondary-50 rounded-lg">
+                            <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <p class="font-medium text-text-primary">Emergency contact added</p>
+                                <p class="text-text-secondary text-sm">September 25, 2025</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-3 p-3 bg-warning-50 rounded-lg">
+                            <div class="w-8 h-8 bg-warning rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <p class="font-medium text-text-primary">Review medical allergies</p>
+                                <p class="text-text-secondary text-sm">Reminder: Update needed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Emergency Preparedness Checklist -->
+            <section>
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-bold text-text-primary">Preparedness Checklist</h2>
+                    <span class="text-success text-sm font-medium">75% Complete</span>
+                </div>
+                <div class="medical-card">
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-5 h-5 bg-success rounded-full flex items-center justify-center">
+                                <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                                </svg>
+                            </div>
+                            <span class="text-text-primary">Medical information complete</span>
+                        </div>
+
+                        <div class="flex items-center space-x-3">
+                            <div class="w-5 h-5 bg-success rounded-full flex items-center justify-center">
+                                <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                                </svg>
+                            </div>
+                            <span class="text-text-primary">Emergency contacts added</span>
+                        </div>
+
+                        <div class="flex items-center space-x-3">
+                            <div class="w-5 h-5 bg-success rounded-full flex items-center justify-center">
+                                <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                                </svg>
+                            </div>
+                            <span class="text-text-primary">QR code generated</span>
+                        </div>
+
+                        <div class="flex items-center space-x-3">
+                            <div class="w-5 h-5 border-2 border-gray-300 rounded-full"></div>
+                            <span class="text-text-secondary">Wallet card printed</span>
+                        </div>
+
+                        <div class="flex items-center space-x-3">
+                            <div class="w-5 h-5 border-2 border-gray-300 rounded-full"></div>
+                            <span class="text-text-secondary">Share with family members</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Widget Panels -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Current Country Emergency Numbers -->
+            <section class="medical-card">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-text-primary">Emergency Numbers</h3>
+                    <a href="country_emergency_numbers.html" class="text-secondary hover:text-secondary-700 text-sm font-medium">View All</a>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between p-3 bg-primary-50 rounded-lg">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-medium text-text-primary">Emergency</p>
+                                <p class="text-text-secondary text-sm">United States</p>
+                            </div>
+                        </div>
+                        <button onclick="callEmergency('911')" class="font-mono text-lg font-bold text-primary hover:text-primary-700">911</button>
+                    </div>
+
+                    <div class="flex items-center justify-between p-3 bg-secondary-50 rounded-lg">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-medium text-text-primary">Poison Control</p>
+                                <p class="text-text-secondary text-sm">24/7 Hotline</p>
+                            </div>
+                        </div>
+                        <button onclick="callEmergency('18002221222')" class="font-mono text-sm font-bold text-secondary hover:text-secondary-700">1-800-222-1222</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Primary Emergency Contacts -->
+            <section class="medical-card">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-text-primary">Emergency Contacts</h3>
+                    <a href="emergency_contacts.html" class="text-secondary hover:text-secondary-700 text-sm font-medium">Manage</a>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between p-3 bg-success-50 rounded-lg">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 bg-success rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-medium text-text-primary">John Smith</p>
+                                <p class="text-text-secondary text-sm">Spouse</p>
+                            </div>
+                        </div>
+                        <button onclick="callContact('+15550123')" class="text-success hover:text-success-700 p-2">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="flex items-center justify-between p-3 bg-warning-50 rounded-lg">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 bg-warning rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-medium text-text-primary">Dr. Sarah Johnson</p>
+                                <p class="text-text-secondary text-sm">Primary Doctor</p>
+                            </div>
+                        </div>
+                        <button onclick="callContact('+15550456')" class="text-warning hover:text-warning-700 p-2">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Medical Alert Summary -->
+            <section class="medical-card">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-text-primary">Medical Alerts</h3>
+                    <a href="medical_information.html" class="text-secondary hover:text-secondary-700 text-sm font-medium">Edit</a>
+                </div>
+                <div class="space-y-3">
+                    <div class="p-3 bg-error-50 rounded-lg border border-error-200">
+                        <div class="flex items-center space-x-2 mb-2">
+                            <svg class="w-4 h-4 text-error" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+                            </svg>
+                            <span class="font-semibold text-error">Critical Allergies</span>
+                        </div>
+                        <p class="text-text-primary font-mono text-sm">Penicillin, Shellfish</p>
+                    </div>
+
+                    <div class="p-3 bg-primary-50 rounded-lg border border-primary-200">
+                        <div class="flex items-center space-x-2 mb-2">
+                            <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            <span class="font-semibold text-primary">Blood Type</span>
+                        </div>
+                        <p class="text-text-primary font-mono text-xl font-bold">O+</p>
+                    </div>
+
+                    <div class="p-3 bg-secondary-50 rounded-lg border border-secondary-200">
+                        <div class="flex items-center space-x-2 mb-2">
+                            <svg class="w-4 h-4 text-secondary" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                            </svg>
+                            <span class="font-semibold text-secondary">Condition</span>
+                        </div>
+                        <p class="text-text-primary text-sm">Type 2 Diabetes</p>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
 
     <!-- Floating Emergency Button -->
-    <div class="floating-action animate-pulse-emergency" onclick="callEmergency('911')">
+    <div class="floating-action animate-pulse-emergency" onclick="window.location.href='emergency_quick_access.html'">
         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"/>
         </svg>
     </div>
 
     <!-- JavaScript -->
     <script>
-        // Emergency numbers database
-        const emergencyDatabase = {
-            'US': {
-                name: 'United States',
-                flag: 'https://images.unsplash.com/photo-1485738422979-f5c462d49f74?q=80&w=2899&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                general: '911',
-                police: '911',
-                fire: '911',
-                medical: '911',
-                info: 'Emergency services available 24/7 in English',
-                languages: 'English (primary), Spanish available',
-                coverage: 'Nationwide 24/7 service',
-                textServices: 'Text to 911 available in most areas'
-            },
-            'UK': {
-                name: 'United Kingdom',
-                flag: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                general: '999',
-                police: '999',
-                fire: '999',
-                medical: '999',
-                info: 'Emergency services available 24/7 in English',
-                languages: 'English (primary), Welsh available',
-                coverage: 'UK-wide 24/7 service',
-                textServices: 'Text to 999 available for deaf/hard of hearing'
-            },
-            'CA': {
-                name: 'Canada',
-                flag: 'https://images.unsplash.com/photo-1517935706615-2717063c2225?q=80&w=2946&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                general: '911',
-                police: '911',
-                fire: '911',
-                medical: '911',
-                info: 'Emergency services available 24/7 in English and French',
-                languages: 'English, French (official languages)',
-                coverage: 'Canada-wide 24/7 service',
-                textServices: 'Text to 911 available in select areas'
-            },
-            'FR': {
-                name: 'France',
-                flag: 'https://images.unsplash.com/photo-1502602898536-47ad22581b52?q=80&w=2946&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                general: '112',
-                police: '17',
-                fire: '18',
-                medical: '15',
-                info: 'Emergency services available 24/7 in French',
-                languages: 'French (primary), English limited',
-                coverage: 'France-wide 24/7 service',
-                textServices: 'SMS emergency services available'
-            },
-            'AU': {
-                name: 'Australia',
-                flag: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                general: '000',
-                police: '000',
-                fire: '000',
-                medical: '000',
-                info: 'Emergency services available 24/7 in English',
-                languages: 'English (primary), interpreter services available',
-                coverage: 'Australia-wide 24/7 service',
-                textServices: 'SMS to 106 for deaf/hard of hearing'
-            },
-            'DE': {
-                name: 'Germany',
-                flag: 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                general: '112',
-                police: '110',
-                fire: '112',
-                medical: '112',
-                info: 'Emergency services available 24/7 in German',
-                languages: 'German (primary), English limited',
-                coverage: 'Germany-wide 24/7 service',
-                textServices: 'Fax emergency services available'
-            }
-        };
-
-        let favorites = JSON.parse(localStorage.getItem('favoriteCountries') || '["US", "UK"]');
-        let recentCountries = JSON.parse(localStorage.getItem('recentCountries') || '["CA", "FR"]');
-        let currentCountry = 'US';
-
         // Mobile menu toggle
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
             mobileMenu.classList.toggle('hidden');
         }
 
-        // Emergency calling function
+        // Emergency calling functions
         function callEmergency(number) {
             if (confirm(`Call emergency services (${number})?`)) {
                 window.location.href = `tel:${number}`;
             }
         }
 
-        // Country selection
-        function selectCountry(countryCode) {
-            if (!emergencyDatabase[countryCode]) return;
-            
-            currentCountry = countryCode;
-            const country = emergencyDatabase[countryCode];
-            
-            // Update selected country display
-            document.getElementById('selectedCountryFlag').src = country.flag;
-            document.getElementById('selectedCountryName').textContent = country.name;
-            document.getElementById('selectedCountryInfo').textContent = country.info;
-            
-            // Update emergency services
-            updateEmergencyServices(country);
-            
-            // Add to recent countries
-            addToRecent(countryCode);
-            
-            // Scroll to selected country section
-            document.getElementById('selectedCountrySection').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Update emergency services display
-        function updateEmergencyServices(country) {
-            const servicesContainer = document.getElementById('emergencyServices');
-            servicesContainer.innerHTML = `
-                <!-- General Emergency -->
-                <div class="bg-white rounded-lg p-6 border border-primary-200 shadow-card">
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"/>
-                            </svg>
-                        </div>
-                        <h4 class="text-lg font-bold text-primary mb-2">General Emergency</h4>
-                        <p class="text-text-secondary text-sm mb-4">All emergency services</p>
-                        <div class="font-mono text-3xl font-bold text-primary mb-4">${country.general}</div>
-                        <button class="emergency-button w-full" onclick="callEmergency('${country.general}')">
-                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                            </svg>
-                            Call Now
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Police -->
-                <div class="bg-white rounded-lg p-6 border border-secondary-200 shadow-card">
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
-                            </svg>
-                        </div>
-                        <h4 class="text-lg font-bold text-secondary mb-2">Police</h4>
-                        <p class="text-text-secondary text-sm mb-4">Law enforcement</p>
-                        <div class="font-mono text-3xl font-bold text-secondary mb-4">${country.police}</div>
-                        <button class="bg-secondary text-white font-semibold py-3 px-6 rounded-lg hover:bg-secondary-700 transition-colors duration-200 w-full" onclick="callEmergency('${country.police}')">
-                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                            </svg>
-                            Call Police
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Fire Department -->
-                <div class="bg-white rounded-lg p-6 border border-warning-200 shadow-card">
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-warning rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M19.48 12.35c-1.57-4.08-7.16-4.3-5.81-10.23.1-.44-.37-.78-.75-.55C9.29 3.71 6.68 8.93 6.68 13.55c0 4.36 3.64 7.9 8.11 7.9 4.59 0 8.32-3.72 8.32-8.32 0-.68-.06-1.34-.2-1.98-.1-.5-.73-.69-1.05-.35-.32.34-.66.69-1.05 1.05-.39.36-.8.72-1.33.5z"/>
-                            </svg>
-                        </div>
-                        <h4 class="text-lg font-bold text-warning mb-2">Fire Department</h4>
-                        <p class="text-text-secondary text-sm mb-4">Fire & rescue services</p>
-                        <div class="font-mono text-3xl font-bold text-warning mb-4">${country.fire}</div>
-                        <button class="bg-warning text-white font-semibold py-3 px-6 rounded-lg hover:bg-warning-700 transition-colors duration-200 w-full" onclick="callEmergency('${country.fire}')">
-                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                            </svg>
-                            Call Fire Dept
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Medical Emergency -->
-                <div class="bg-white rounded-lg p-6 border border-success-200 shadow-card">
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-success rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M19 8h-2v3h-3v2h3v3h2v-3h3v-2h-3V8zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/>
-                            </svg>
-                        </div>
-                        <h4 class="text-lg font-bold text-success mb-2">Medical Emergency</h4>
-                        <p class="text-text-secondary text-sm mb-4">Ambulance & medical</p>
-                        <div class="font-mono text-3xl font-bold text-success mb-4">${country.medical}</div>
-                        <button class="bg-success text-white font-semibold py-3 px-6 rounded-lg hover:bg-success-700 transition-colors duration-200 w-full" onclick="callEmergency('${country.medical}')">
-                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                            </svg>
-                            Call Ambulance
-                        </button>
-                    </div>
-                </div>
-            `;
-
-            // Update additional information
-            const infoSection = document.querySelector('#selectedCountrySection .mt-6');
-            if (infoSection) {
-                infoSection.innerHTML = `
-                    <h4 class="font-semibold text-text-primary mb-2">Important Information</h4>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-text-secondary">
-                        <div><strong>Languages:</strong> ${country.languages}</div>
-                        <div><strong>Coverage:</strong> ${country.coverage}</div>
-                        <div><strong>Text Services:</strong> ${country.textServices}</div>
-                        <div><strong>Last Updated:</strong> December 2025</div>
-                    </div>
-                `;
+        function callContact(number) {
+            if (confirm(`Call ${number}?`)) {
+                window.location.href = `tel:${number}`;
             }
         }
 
-        // Add to recent countries
-        function addToRecent(countryCode) {
-            recentCountries = recentCountries.filter(code => code !== countryCode);
-            recentCountries.unshift(countryCode);
-            recentCountries = recentCountries.slice(0, 5);
-            localStorage.setItem('recentCountries', JSON.stringify(recentCountries));
-            updateRecentCountries();
+        // Utility functions
+        function printWalletCard() {
+            window.print();
         }
 
-        // Toggle favorite
-        function toggleFavorite(countryCode) {
-            if (favorites.includes(countryCode)) {
-                favorites = favorites.filter(code => code !== countryCode);
-            } else {
-                favorites.push(countryCode);
-            }
-            localStorage.setItem('favoriteCountries', JSON.stringify(favorites));
-            updateFavoriteCountries();
-            updateFavoriteButton(countryCode);
-        }
-
-        // Update favorite button
-        function updateFavoriteButton(countryCode) {
-            const button = document.getElementById('favoriteButton');
-            const isFavorite = favorites.includes(countryCode);
-            button.innerHTML = `
-                <svg class="w-6 h-6 ${isFavorite ? 'text-accent' : 'text-gray-400'}" fill="${isFavorite ? 'currentColor' : 'none'}" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
-                </svg>
-            `;
-        }
-
-        // Update favorite countries display
-        function updateFavoriteCountries() {
-            const container = document.getElementById('favoriteCountries');
-            container.innerHTML = favorites.map(code => {
-                const country = emergencyDatabase[code];
-                if (!country) return '';
-                return `
-                    <div class="flex items-center justify-between p-3 bg-accent-50 rounded-lg cursor-pointer hover:bg-accent-100 transition-colors duration-200" onclick="selectCountry('${code}')">
-                        <div class="flex items-center space-x-3">
-                            <img src="${country.flag}" 
-                                 alt="${country.name} Flag" 
-                                 class="w-8 h-6 object-cover rounded border"
-                                 onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
-                            <span class="font-medium text-text-primary">${country.name}</span>
-                        </div>
-                        <span class="text-accent font-mono text-sm">${country.general}</span>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        // Update recent countries display
-        function updateRecentCountries() {
-            const container = document.getElementById('recentCountries');
-            container.innerHTML = recentCountries.map(code => {
-                const country = emergencyDatabase[code];
-                if (!country) return '';
-                return `
-                    <div class="flex items-center justify-between p-3 bg-secondary-50 rounded-lg cursor-pointer hover:bg-secondary-100 transition-colors duration-200" onclick="selectCountry('${code}')">
-                        <div class="flex items-center space-x-3">
-                            <img src="${country.flag}" 
-                                 alt="${country.name} Flag" 
-                                 class="w-8 h-6 object-cover rounded border"
-                                 onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
-                            <span class="font-medium text-text-primary">${country.name}</span>
-                        </div>
-                        <span class="text-secondary font-mono text-sm">${country.general}</span>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        // Search countries
-        function searchCountries(query) {
-            // Implementation for search functionality
-            console.log('Searching for:', query);
-        }
-
-        // Filter services
-        function filterServices(serviceType) {
-            // Implementation for service filtering
-            console.log('Filtering by service:', serviceType);
-        }
-
-        // Detect location
-        function detectLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    function(position) {
-                        // In a real app, you would use a geolocation API to determine country
-                        alert('Location detected! Selecting local emergency numbers...');
-                        selectCountry('US'); // Default for demo
-                    },
-                    function(error) {
-                        alert('Unable to detect location. Please select your country manually.');
-                    }
-                );
-            } else {
-                alert('Geolocation is not supported by this browser.');
-            }
-        }
-
-        // Load more countries
-        function loadMoreCountries() {
-            // Implementation for loading more countries
-            alert('Loading more countries...');
-        }
-
-        // Initialize page
+        // Initialize dashboard
         document.addEventListener('DOMContentLoaded', function() {
-            updateFavoriteCountries();
-            updateRecentCountries();
-            updateFavoriteButton(currentCountry);
-            console.log('Country Emergency Numbers page loaded');
+            // Update last activity timestamp
+            updateLastActivity();
+            
+            // Check for outdated information
+            checkForOutdatedInfo();
+            
+            console.log('Dashboard loaded successfully');
         });
+
+        function updateLastActivity() {
+            const now = new Date();
+            const timeString = now.toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+            
+            // Update any timestamp elements if needed
+            console.log('Last activity updated:', timeString);
+        }
+
+        function checkForOutdatedInfo() {
+            // Check if medical information needs updating
+            const lastMedicalUpdate = localStorage.getItem('lastMedicalUpdate');
+            const thirtyDaysAgo = new Date();
+            thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+            
+            if (!lastMedicalUpdate || new Date(lastMedicalUpdate) < thirtyDaysAgo) {
+                console.log('Medical information may need updating');
+                // Could show a notification or update UI
+            }
+        }
+
+        // Service Worker registration for offline functionality
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function(err) {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
     </script>
+
+    <!-- Print Styles -->
+    <style media="print">
+        @page {
+            size: 3.375in 2.125in; /* Credit card size */
+            margin: 0.1in;
+        }
+        
+        body * {
+            visibility: hidden;
+        }
+        
+        .print-card, .print-card * {
+            visibility: visible;
+        }
+        
+        .print-card {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            background: white;
+            font-size: 8pt;
+            line-height: 1.2;
+        }
+        
+        .no-print {
+            display: none !important;
+        }
+    </style>
+
+    <!-- Hidden Print Card Template -->
+    <div class="print-card hidden">
+        <div style="text-align: center; margin-bottom: 8px;">
+            <strong style="color: #DC2626; font-size: 10pt;">EMERGENCY MEDICAL CARD</strong>
+        </div>
+        <div style="margin-bottom: 6px;">
+            <strong>Name:</strong> John Doe<br />
+            <strong>Blood Type:</strong> O+<br />
+            <strong>Allergies:</strong> Penicillin, Shellfish
+        </div>
+        <div style="margin-bottom: 6px;">
+            <strong>Emergency Contact:</strong><br />
+            John Smith (Spouse): +1 (555) 0123
+        </div>
+        <div style="font-size: 6pt; text-align: center; color: #666;">
+            Generated: September 2025 | Global Emergency Card
+        </div>
+    </div>
 <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
 </body>
 </html>
