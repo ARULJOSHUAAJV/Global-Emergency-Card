@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emergency Quick Access - Global Emergency Card</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fglobaleme1676back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background min-h-screen">
+    <!-- Emergency Header -->
+    <header class="bg-primary text-white shadow-floating sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo and Title -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold">Emergency Access</h1>
+                        <p class="text-red-100 text-sm">Quick Response Mode</p>
+                    </div>
+                </div>
+
+                <!-- Navigation Menu -->
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="dashboard.html" class="text-red-100 hover:text-white transition-colors duration-200">Dashboard</a>
+                    <a href="medical_information.html" class="text-red-100 hover:text-white transition-colors duration-200">Medical Info</a>
+                    <a href="emergency_contacts.html" class="text-red-100 hover:text-white transition-colors duration-200">Contacts</a>
+                    <a href="country_emergency_numbers.html" class="text-red-100 hover:text-white transition-colors duration-200">Emergency Numbers</a>
+                    <a href="qr_code_generator.html" class="text-red-100 hover:text-white transition-colors duration-200">QR Code</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-white p-2" onclick="toggleMobileMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="dashboard.html" class="text-red-100 hover:text-white py-2 transition-colors duration-200">Dashboard</a>
+                    <a href="medical_information.html" class="text-red-100 hover:text-white py-2 transition-colors duration-200">Medical Info</a>
+                    <a href="emergency_contacts.html" class="text-red-100 hover:text-white py-2 transition-colors duration-200">Contacts</a>
+                    <a href="country_emergency_numbers.html" class="text-red-100 hover:text-white py-2 transition-colors duration-200">Emergency Numbers</a>
+                    <a href="qr_code_generator.html" class="text-red-100 hover:text-white py-2 transition-colors duration-200">QR Code</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <!-- Emergency Alert Banner -->
+        <section class="mb-8">
+            <div class="bg-primary-50 border-l-4 border-primary rounded-lg p-6 animate-fade-in">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <svg class="w-8 h-8 text-primary animate-pulse-emergency" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"/>
+                        </svg>
+                    </div>
+                    <div class="ml-4">
+                        <h2 class="text-2xl font-bold text-primary">Emergency Mode Active</h2>
+                        <p class="text-text-secondary mt-1">Critical information ready for immediate access</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Emergency Actions Row -->
+        <section class="mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Call Emergency Services -->
+                <div class="medical-card border-primary">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-2">Emergency Services</h3>
+                        <p class="text-text-secondary mb-4">Call local emergency number</p>
+                        <button class="emergency-button w-full text-lg" onclick="callEmergency('911')">
+                            Call 911
+                        </button>
+                    </div>
+                </div>
+
+                <!-- QR Code Display -->
+                <div class="medical-card border-secondary">
+                    <div class="text-center">
+                        <div class="w-32 h-32 bg-gray-100 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=EMERGENCY%20MEDICAL%20INFO%0AName:%20John%20Doe%0AAllergies:%20Penicillin%0ABlood%20Type:%20O+%0AConditions:%20Diabetes%0AEmergency%20Contact:%20555-0123" alt="Emergency Medical QR Code" class="w-full h-full object-contain rounded-lg" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary mb-2">Medical QR Code</h3>
+                        <p class="text-text-secondary mb-4">For first responders</p>
+                        <a href="qr_code_generator.html" class="inline-flex items-center px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary-700 transition-colors duration-200">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
+                            </svg>
+                            Generate New
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Print Wallet Card -->
+                <div class="medical-card border-accent">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-accent mb-2">Wallet Card</h3>
+                        <p class="text-text-secondary mb-4">Print emergency card</p>
+                        <button class="bg-accent text-white font-semibold py-3 px-6 rounded-lg hover:bg-accent-600 transition-colors duration-200 w-full" onclick="printWalletCard()">
+                            Print Card
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Emergency Contacts -->
+        <section class="mb-8">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold text-text-primary">Emergency Contacts</h2>
+                <a href="emergency_contacts.html" class="inline-flex items-center px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary-700 transition-colors duration-200">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                    </svg>
+                    Manage Contacts
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Emergency Contact 1 -->
+                <div class="medical-card border-l-4 border-l-primary">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-text-primary">John Smith</h3>
+                                <p class="text-text-secondary text-sm">Spouse</p>
+                            </div>
+                        </div>
+                        <span class="status-indicator success">Primary</span>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-text-secondary">Phone:</span>
+                            <span class="font-mono text-text-primary">+1 (555) 0123</span>
+                        </div>
+                        <button class="emergency-button w-full" onclick="callContact('+15550123')">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                            Call Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Emergency Contact 2 -->
+                <div class="medical-card border-l-4 border-l-secondary">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-secondary" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-text-primary">Dr. Sarah Johnson</h3>
+                                <p class="text-text-secondary text-sm">Primary Doctor</p>
+                            </div>
+                        </div>
+                        <span class="status-indicator warning">Medical</span>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-text-secondary">Phone:</span>
+                            <span class="font-mono text-text-primary">+1 (555) 0456</span>
+                        </div>
+                        <button class="bg-secondary text-white font-semibold py-3 px-6 rounded-lg hover:bg-secondary-700 transition-colors duration-200 w-full" onclick="callContact('+15550456')">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                            Call Doctor
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Emergency Contact 3 -->
+                <div class="medical-card border-l-4 border-l-success">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-success-100 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-success" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A2.996 2.996 0 0 0 17.06 7c-.8 0-1.54.5-1.85 1.26l-1.92 5.77c-.24.72.16 1.5.89 1.73L15.5 16v6h4.5z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-text-primary">Maria Garcia</h3>
+                                <p class="text-text-secondary text-sm">Sister</p>
+                            </div>
+                        </div>
+                        <span class="status-indicator success">Family</span>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-text-secondary">Phone:</span>
+                            <span class="font-mono text-text-primary">+1 (555) 0789</span>
+                        </div>
+                        <button class="bg-success text-white font-semibold py-3 px-6 rounded-lg hover:bg-success-700 transition-colors duration-200 w-full" onclick="callContact('+15550789')">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                            Call Family
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Medical Alert Summary -->
+        <section class="mb-8">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold text-text-primary">Critical Medical Information</h2>
+                <a href="medical_information.html" class="inline-flex items-center px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary-700 transition-colors duration-200">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                    </svg>
+                    Edit Medical Info
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Critical Alerts -->
+                <div class="medical-card bg-error-50 border-error">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-error rounded-full flex items-center justify-center mr-3">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-error">Critical Alerts</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-lg p-4 border border-error-200">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="font-semibold text-error">Allergies</span>
+                                <span class="status-indicator error">Severe</span>
+                            </div>
+                            <p class="text-text-primary font-mono">Penicillin, Shellfish</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 border border-error-200">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="font-semibold text-error">Blood Type</span>
+                                <span class="status-indicator error">Critical</span>
+                            </div>
+                            <p class="text-text-primary font-mono text-2xl font-bold">O+</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medical Conditions -->
+                <div class="medical-card bg-warning-50 border-warning">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-warning rounded-full flex items-center justify-center mr-3">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-warning">Medical Conditions</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-lg p-4 border border-warning-200">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="font-semibold text-warning">Condition</span>
+                                <span class="status-indicator warning">Chronic</span>
+                            </div>
+                            <p class="text-text-primary">Type 2 Diabetes</p>
+                            <p class="text-text-secondary text-sm mt-1">Diagnosed: 2018</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 border border-warning-200">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="font-semibold text-warning">Current Medications</span>
+                                <span class="status-indicator warning">Daily</span>
+                            </div>
+                            <p class="text-text-primary font-mono">Metformin 500mg (2x daily)</p>
+                            <p class="text-text-primary font-mono">Lisinopril 10mg (1x daily)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions Footer -->
+        <section class="bg-surface rounded-lg shadow-card p-6">
+            <h3 class="text-lg font-bold text-text-primary mb-4">Quick Actions</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <a href="country_emergency_numbers.html" class="flex flex-col items-center p-4 bg-secondary-50 rounded-lg hover:bg-secondary-100 transition-colors duration-200">
+                    <svg class="w-8 h-8 text-secondary mb-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    <span class="text-sm font-medium text-secondary text-center">Emergency Numbers</span>
+                </a>
+                <button onclick="shareEmergencyInfo()" class="flex flex-col items-center p-4 bg-success-50 rounded-lg hover:bg-success-100 transition-colors duration-200">
+                    <svg class="w-8 h-8 text-success mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"/>
+                    </svg>
+                    <span class="text-sm font-medium text-success text-center">Share Info</span>
+                </button>
+                <button onclick="printWalletCard()" class="flex flex-col items-center p-4 bg-accent-50 rounded-lg hover:bg-accent-100 transition-colors duration-200">
+                    <svg class="w-8 h-8 text-accent mb-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/>
+                    </svg>
+                    <span class="text-sm font-medium text-accent text-center">Print Card</span>
+                </button>
+                <a href="dashboard.html" class="flex flex-col items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                    <svg class="w-8 h-8 text-text-secondary mb-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                    </svg>
+                    <span class="text-sm font-medium text-text-secondary text-center">Dashboard</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating Emergency Button -->
+    <div class="floating-action animate-pulse-emergency" onclick="callEmergency('911')">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+        </svg>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // Emergency calling functions
+        function callEmergency(number) {
+            if (confirm(`Call emergency services (${number})?`)) {
+                window.location.href = `tel:${number}`;
+            }
+        }
+
+        function callContact(number) {
+            if (confirm(`Call ${number}?`)) {
+                window.location.href = `tel:${number}`;
+            }
+        }
+
+        // Utility functions
+        function shareEmergencyInfo() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Emergency Medical Information',
+                    text: 'Emergency contact and medical information for John Doe',
+                    url: window.location.href
+                });
+            } else {
+                // Fallback for browsers without Web Share API
+                const text = 'Emergency Medical Information - Name: John Doe, Blood Type: O+, Allergies: Penicillin, Shellfish, Emergency Contact: +1 (555) 0123';
+                navigator.clipboard.writeText(text).then(() => {
+                    alert('Emergency information copied to clipboard!');
+                });
+            }
+        }
+
+        function printWalletCard() {
+            window.print();
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add any initialization code here
+            console.log('Emergency Quick Access page loaded');
+        });
+    </script>
+
+    <!-- Print Styles -->
+    <style media="print">
+        @page {
+            size: 3.375in 2.125in; /* Credit card size */
+            margin: 0.1in;
+        }
+        
+        body * {
+            visibility: hidden;
+        }
+        
+        .print-card, .print-card * {
+            visibility: visible;
+        }
+        
+        .print-card {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            background: white;
+            font-size: 8pt;
+            line-height: 1.2;
+        }
+        
+        .no-print {
+            display: none !important;
+        }
+    </style>
+
+    <!-- Hidden Print Card Template -->
+    <div class="print-card hidden">
+        <div style="text-align: center; margin-bottom: 8px;">
+            <strong style="color: #DC2626; font-size: 10pt;">EMERGENCY MEDICAL CARD</strong>
+        </div>
+        <div style="margin-bottom: 6px;">
+            <strong>Name:</strong> John Doe<br />
+            <strong>Blood Type:</strong> O+<br />
+            <strong>Allergies:</strong> Penicillin, Shellfish
+        </div>
+        <div style="margin-bottom: 6px;">
+            <strong>Emergency Contact:</strong><br />
+            John Smith (Spouse): +1 (555) 0123
+        </div>
+        <div style="font-size: 6pt; text-align: center; color: #666;">
+            Generated: December 2025 | Global Emergency Card
+        </div>
+    </div>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>
